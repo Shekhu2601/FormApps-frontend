@@ -25,7 +25,7 @@ function App() {
       <Route path='/home' element={<Home/>} />
       <Route path='/dashboard' element={<Dashboard/>} />
       
-    </Routes>
+    </Routes >
     </BrowserRouter>
     
      
