@@ -1,0 +1,115 @@
+.container{
+    width: 100%;
+    height: 97.6vh;
+     display: flex;
+     
+     background-color:#18181B;
+     
+     align-items: center;
+     justify-content: center;
+     color: #FFFFFF;
+    
+     
+ }
+ .main{
+     background-color:#18181B;
+    
+     display: flex;
+     position: relative;
+     
+   
+ }
+ .yt{
+     position: absolute;
+     left: -37vw ;
+ }
+ .ey{
+     position: absolute;
+     bottom: -21vh;
+     right: -18vw;
+ }
+ .ep{
+     position: absolute;
+     right: -34.2vw;
+ }
+ 
+ 
+ .inputs{
+     width: 360px;
+     padding: 10px;
+     border-radius: 15px;
+     margin: 5px;
+     text-align: center;
+    background-color: #18181B;
+    color: #FFFFFF;
+ 
+ }
+ .infi{
+     display: flex;
+     flex-direction: column;
+     
+     
+ }
+ 
+ 
+ .loginbtn{
+     width: 380px;
+     padding: 10px;
+     border-radius: 20px;
+     
+     text-align: center;
+     background:#1A5FFF;
+     color: #FFFFFF;
+     margin-top: 20px;
+     border: none;
+     font-size: 20px;
+     margin-bottom: 10px;
+ }
+ .Loginbtn2{
+     display: flex;
+     position: relative;
+     width: 380px;
+     padding: 10px;
+     border-radius: 20px;
+     
+     align-items: center;
+     justify-content: center;
+     background:#1A5FFF;
+     color: #FFFFFF;
+     margin-top: 20px;
+     border: none;
+     font-size: 20px;
+     margin-bottom: 10px;
+ }
+ .icon{
+  
+    position: absolute;
+    left: 42px;
+    
+     
+ }
+ .icon2{
+    
+    position: absolute;
+    
+     left: 38px;
+ }
+ .links{
+    
+     text-decoration: none;
+     color:#1A5FFF;
+ }
+ .subH{
+  
+     font-size: 20px;
+     display: flex;
+     justify-content: center;
+    }
+    .arro{
+     font-size: 50px;
+     color: #FFFFFF;
+     position: absolute;
+     left: -28vw ;
+     top: -10vh;
+ }
+    
