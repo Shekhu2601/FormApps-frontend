@@ -11,7 +11,7 @@ import Dashboard from './Pages/Dashboard';
 
 
 function App() {
-
+  const user= localStorage.getItem("token")
 
   return (
    
@@ -23,7 +23,7 @@ function App() {
       <Route path='/login' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='/home' element={<Home/>} />
-      <Route path='/dashboard' element={<Dashboard/>} />
+     {user &&  <Route path='/dashboard' element={<Dashboard/>} />}
       
     </Routes >
     </BrowserRouter>

@@ -1,0 +1,32 @@
+/* Container */
+.toggle-container {
+  width: 60px;
+  height: 30px;
+  background-color: #1A5FFF;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Active state for the container */
+.toggle-container.active {
+  background-color: #4caf50;
+}
+
+/* Circle inside the toggle */
+.toggle-circle {
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  transform: translateX(2px);
+}
+
+/* Move the circle to the right when active */
+.toggle-circle.active {
+  transform: translateX(30px);
+}

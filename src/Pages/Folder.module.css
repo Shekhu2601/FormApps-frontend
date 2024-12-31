@@ -1,0 +1,90 @@
+.wrapar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+ 
+}
+.container {
+  position: fixed;
+  width: 380px;
+  height: 165px;
+  top: 50%;
+  left: 50%;
+  border-radius: 20px;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  border: 1px solid black;
+}
+.inputTitle {
+  width: 90%;
+  margin-top: 20px;
+  padding: 15px;
+  border:none;
+  background-color: #1F1F23;
+  color: white;
+}
+
+.titlelabel {
+  font-size: 22px;
+  
+}
+
+.inputs {
+  display: flex;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  margin: 10px;
+ 
+}
+
+.cancle {
+  width: 150px;
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid;
+ color: white;
+  font-weight: bold;
+  
+  border: none;
+  font-size: 18px;
+}
+.save {
+  width: 150px;
+  color:#1A5FFF;
+  background-color: transparent;
+  padding: 11px;
+  border-radius: 10px;
+  border: none;
+ 
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 10px;
+}
+.btndiv {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  flex-direction: row;
+}
+.dark{
+    background-color: rgba(0, 0, 0, 0.856);
+    color:white;
+    position: fixed;
+    width: 380px;
+    height: 165px;
+    top: 50%;
+    left: 50%;
+    border-radius: 20px;
+  
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    border: 1px solid white
+}
+.diveder{
+    font-size: 40px; 
+    color: #1F1F23;
+}

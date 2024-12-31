@@ -33,7 +33,7 @@ export default function Login() {
     }
     try {
       const response = await fetch(
-        `https://form-apps-backend-sekher-namdevs-projects.vercel.app/auth/login`,
+        `https://form-apps-backend.vercel.app/auth/login`,
         {
           method: "POST",
           headers: {
@@ -48,9 +48,11 @@ export default function Login() {
         handleSuccess(message);
         localStorage.setItem("token", jwtToken);
         localStorage.setItem("loggedInUser", name);
+        navigate("/dashboard");
         setTimeout(() => {
-          navigate("/dashboard");
-        }, 1000);
+          window.location.reload()
+        },1000 );
+       
       } else if (error) {
         const details = error?.details[0].message;
         handleError(details);
