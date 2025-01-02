@@ -1,7 +1,7 @@
 import React from "react";
-import { getAllFolder, deleteFolder } from "../services/GetData";
+import { getAllFolder, deleteFolder, isView } from "../services/GetData";
 import { useEffect, useState } from "react";
-
+import { decodeToken } from "react-jwt";
 import styles from "./FolderBox.module.css";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
@@ -46,28 +46,38 @@ export default function Folderlist({ handleToggle }) {
   };
 
   return (
-    <>
-      <div className={styles.container}>
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          folders.map((folder, idx) => (
+    <> 
+
+<div className={styles.container}>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        folders.map((folder, idx) => {
+          const isViewable = isView(folder.creator);
+
+          return (
             <p key={idx}>
               <div>
-                <div className={handleDelete ? styles.main : styles.fname}>
-                  {folder.FolderName}{" "}
+                <div >
+                  {isViewable ? <div className={styles.fname}>
+                  {folder.FolderName}
                   <button
                     className={styles.edbtn}
-                    onClick={(e) => handleDelete(folder._id)}
+                    onClick={() => handleDelete(folder._id)}
                   >
                     <RiDeleteBin6Line className={styles.del} />
-                  </button>{" "}
+                  </button>
+                </div> : null}
                 </div>
+                
               </div>
             </p>
-          ))
-        )}
-      </div>
+          );
+        })
+      )}
+    </div>
+
+      
     </>
   );
 }

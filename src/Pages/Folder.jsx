@@ -20,7 +20,7 @@ export default function Folder({ handleToggle , Close }) {
     Close();
   };
 
-  
+  const token = localStorage.getItem("token");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,6 +41,7 @@ export default function Folder({ handleToggle , Close }) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: ` ${token}`,
         },
         body: JSON.stringify(formData),
       });

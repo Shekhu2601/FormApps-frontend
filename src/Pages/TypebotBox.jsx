@@ -55,10 +55,8 @@ export default function Typebotlist() {
           return (
             <p key={idx}>
               <div>
-                <div className={isViewable ? styles.typebotO : styles.typebotC}>
-                  {isViewable ? <button>Show</button> : null}
-                </div>
-                <div className={styles.fname}>
+                <div >
+                  {isViewable ? <div className={styles.fname}>
                   {typebot.Name}
                   <button
                     className={styles.edbtn}
@@ -66,7 +64,9 @@ export default function Typebotlist() {
                   >
                     <RiDeleteBin6Line className={styles.del} />
                   </button>
+                </div> : null}
                 </div>
+                
               </div>
             </p>
           );
