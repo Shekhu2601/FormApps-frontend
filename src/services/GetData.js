@@ -26,3 +26,34 @@ export function deleteTypebot(id) {
   });
   return res;
 }
+import { decodeToken } from 'react-jwt';
+export function isView(id) {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    console.error("No token found in localStorage");
+    return false;
+  }
+
+  const decoded = decodeToken(token);
+
+  if (!decoded) {
+    console.error("Failed to decode token");
+    return false;
+  }
+
+  if (!decoded.id) {
+    console.warn("Decoded token does not contain 'id'. Falling back to false.");
+    return false;
+  }
+
+  return decoded.id === id;
+}
+
+ 
+  export function AddTokenToHeader({ headers }) {
+    const token = localStorage.getItem("token");
+    if (token) {
+        headers.Authorization = `${token}`;
+    }
+    return headers; }

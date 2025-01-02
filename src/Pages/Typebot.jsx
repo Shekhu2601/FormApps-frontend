@@ -6,6 +6,8 @@ import { MdDelete } from "react-icons/md";
 import { RxDividerVertical } from "react-icons/rx";
 import Swal from 'sweetalert2'
 
+
+
 export default function Typebot({ handleToggle , CloseT }) {
   const navigate = useNavigate();
   const params = useParams();
@@ -29,7 +31,7 @@ export default function Typebot({ handleToggle , CloseT }) {
     copySFormdata[name] = value;
     setFormData(copySFormdata);
   };
-
+  const token = localStorage.getItem("token");
   const handleCreate = async (e) => {
     e.preventDefault();
     const { Name } = formData;
@@ -41,6 +43,7 @@ export default function Typebot({ handleToggle , CloseT }) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: ` ${token}`,
         },
         body: JSON.stringify(formData),
       });

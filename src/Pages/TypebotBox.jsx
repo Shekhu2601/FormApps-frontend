@@ -1,25 +1,25 @@
-import React from "react";
-import { getAllTypebot, deleteTypebot } from "../services/GetData";
-import { useEffect, useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import { getAllTypebot, deleteTypebot, isView } from "../services/GetData";
+import { decodeToken } from "react-jwt";
 import styles from "./TypebotBox.module.css";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import Swal from "sweetalert2";
 
-import Swal from "sweetalert2"; // This does not expose `Swal.fire`.
-
-export default function Typebotlist({ handleToggle }) {
+export default function Typebotlist() {
   const [typebots, setTypebots] = useState([]);
-  
   const [isLoading, setIsLoading] = useState(true);
+
   const getTypebot = () => {
     getAllTypebot().then((res) => {
       setTypebots(res.data);
       setIsLoading(false);
     });
   };
+
   useEffect(() => {
     getTypebot();
   }, []);
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -31,43 +31,47 @@ export default function Typebotlist({ handleToggle }) {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success",
+        deleteTypebot(id).then(() => {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+
+          setTypebots((prev) => prev.filter((typebot) => typebot._id !== id));
         });
-        deleteTypebot(id);
       }
     });
-
-    setTimeout(() => {
-      window.location.reload();
-    }, 4000);
   };
 
   return (
-    <>
-      <div className={styles.container}>
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          typebots.map((typebot, idx) => (
+    <div className={styles.container}>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        typebots.map((typebot, idx) => {
+          const isViewable = isView(typebot.creator);
+
+          return (
             <p key={idx}>
               <div>
+                <div className={isViewable ? styles.typebotO : styles.typebotC}>
+                  {isViewable ? <button>Show</button> : null}
+                </div>
                 <div className={styles.fname}>
                   {typebot.Name}
                   <button
                     className={styles.edbtn}
-                    onClick={(e) => handleDelete(typebot._id)}
+                    onClick={() => handleDelete(typebot._id)}
                   >
                     <RiDeleteBin6Line className={styles.del} />
                   </button>
                 </div>
               </div>
             </p>
-          ))
-        )}
-      </div>
-    </>
+          );
+        })
+      )}
+    </div>
   );
 }
