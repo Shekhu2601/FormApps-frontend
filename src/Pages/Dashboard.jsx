@@ -10,6 +10,7 @@ import { FaPlus } from "react-icons/fa6";
 import Typebotlist from './TypebotBox';
 import { useNavigate } from 'react-router-dom';
 import NameSL from './NameSL';
+import Swal from "sweetalert2";
 
 
 
@@ -31,12 +32,8 @@ export default function Dashboard() {
       const CloseT = ()=>{
         setTypebotopen(false)
       }
-      const logout =()=>{
-        localStorage.removeItem("token");
-        alert("you are logged out")
-        navigate("/login")
-        
-    }
+    
+    
   return (
 
     <>

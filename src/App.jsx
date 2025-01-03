@@ -6,6 +6,7 @@ import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import Home from './Pages/Home';
 import Dashboard from './Pages/Dashboard';
+import Setting from './Pages/Setting';
 
 
 
@@ -23,6 +24,7 @@ function App() {
       <Route path='/login' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='/home' element={<Home/>} />
+      <Route path='/settings' element={<Setting/>} />
      {user &&  <Route path='/dashboard' element={<Dashboard/>} />}
       
     </Routes >
